@@ -1,0 +1,21 @@
+{
+	"name": "ADLS_IMBD_RATINGS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLS_danielandreassenstorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "ratings.parquet",
+				"fileSystem": "imbd"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

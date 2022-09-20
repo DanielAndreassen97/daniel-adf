@@ -1,0 +1,17 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ASQL_danielandreassen_entertainment",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "imbd",
+			"table": "ratings"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

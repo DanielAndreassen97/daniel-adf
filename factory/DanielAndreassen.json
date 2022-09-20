@@ -1,0 +1,9 @@
+{
+	"name": "DanielAndreassen",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "860a3270-3dd3-4956-8cbe-94695395e312",
+		"tenantId": "8f47ad71-44ca-48bf-afe3-56b9360a4495"
+	}
+}

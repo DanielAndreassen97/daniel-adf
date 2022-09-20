@@ -1,0 +1,43 @@
+{
+	"name": "Orchestration_IMBD",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute HTTP to ADLS",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "IMBD_RATINGS_HTTP_ADLS",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Execute ADLS to ASQL",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Execute HTTP to ADLS",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "IMBD_ADLS_TO_ASQL_RATINGS",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2022-09-16T13:18:10Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

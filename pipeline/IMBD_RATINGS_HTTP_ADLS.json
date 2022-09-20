@@ -1,0 +1,87 @@
+{
+	"name": "IMBD_RATINGS_HTTP_ADLS",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy Ratings from HTTP to ADLS",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "title.ratings.tsv.gz"
+					},
+					{
+						"name": "Destination",
+						"value": "imbd//ratings.parquet"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "HttpReadSettings",
+							"requestMethod": "GET"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "ADLS_danielandreassenstorage",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"enableSkipIncompatibleRow": true,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Warning",
+							"enableReliableLogging": false
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "ADLS_danielandreassenstorage",
+								"type": "LinkedServiceReference"
+							},
+							"path": "imbd/errors/ratings"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "HTTP_IMBD_RATINGS",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ADLS_IMBD_RATINGS",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2022-09-19T05:35:20Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
