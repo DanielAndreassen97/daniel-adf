@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "DanielAndreassen"
+		},
+		"ADLS_danielandreassenstorage_accountKey": {
+			"value": ""
+		},
+		"ASQL_danielandreassen_entertainment_connectionString": {
+			"value": ""
+		},
+		"SQL_danielandreassen_entertainment_connectionString": {
+			"value": ""
+		},
+		"IceAndFire_password": {
+			"value": ""
+		},
+		"IceAndFireDataLake_accountKey": {
+			"value": ""
+		},
+		"ADLS_danielandreassenstorage_properties_typeProperties_url": {
+			"value": "https://danielandreassenstorage.dfs.core.windows.net/"
+		},
+		"Http_IMBD_properties_typeProperties_url": {
+			"value": "https://datasets.imdbws.com/"
+		},
+		"SSISIntegrationRunTime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"value": "danielandreassen.database.windows.net"
+		},
+		"SSISIntegrationRunTime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"value": "danielandreassen"
+		},
+		"SSISIntegrationRunTime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"value": ""
+		},
+		"IceAndFire_properties_typeProperties_url": {
+			"value": "https://www.anapioficeandfire.com/api/"
+		},
+		"IceAndFire_properties_typeProperties_userName": {
+			"value": "danielandreassen"
+		},
+		"IceAndFireDataLake_properties_typeProperties_url": {
+			"value": "https://danielandreassenstorage.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

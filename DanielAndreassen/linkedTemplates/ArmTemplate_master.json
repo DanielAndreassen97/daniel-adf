@@ -1,0 +1,132 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "DanielAndreassen"
+		},
+		"ADLS_danielandreassenstorage_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_danielandreassenstorage'"
+		},
+		"ASQL_danielandreassen_entertainment_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ASQL_danielandreassen_entertainment'"
+		},
+		"SQL_danielandreassen_entertainment_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SQL_danielandreassen_entertainment'"
+		},
+		"IceAndFire_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'IceAndFire'"
+		},
+		"IceAndFireDataLake_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'IceAndFireDataLake'"
+		},
+		"ADLS_danielandreassenstorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://danielandreassenstorage.dfs.core.windows.net/"
+		},
+		"Http_IMBD_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://datasets.imdbws.com/"
+		},
+		"SSISIntegrationRunTime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"type": "string",
+			"defaultValue": "danielandreassen.database.windows.net"
+		},
+		"SSISIntegrationRunTime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"type": "string",
+			"defaultValue": "danielandreassen"
+		},
+		"SSISIntegrationRunTime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"type": "secureString"
+		},
+		"IceAndFire_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://www.anapioficeandfire.com/api/"
+		},
+		"IceAndFire_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "danielandreassen"
+		},
+		"IceAndFireDataLake_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://danielandreassenstorage.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "DanielAndreassen_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADLS_danielandreassenstorage_accountKey": {
+						"value": "[parameters('ADLS_danielandreassenstorage_accountKey')]"
+					},
+					"ASQL_danielandreassen_entertainment_connectionString": {
+						"value": "[parameters('ASQL_danielandreassen_entertainment_connectionString')]"
+					},
+					"IceAndFire_password": {
+						"value": "[parameters('IceAndFire_password')]"
+					},
+					"IceAndFireDataLake_accountKey": {
+						"value": "[parameters('IceAndFireDataLake_accountKey')]"
+					},
+					"SQL_danielandreassen_entertainment_connectionString": {
+						"value": "[parameters('SQL_danielandreassen_entertainment_connectionString')]"
+					},
+					"ADLS_danielandreassenstorage_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_danielandreassenstorage_properties_typeProperties_url')]"
+					},
+					"Http_IMBD_properties_typeProperties_url": {
+						"value": "[parameters('Http_IMBD_properties_typeProperties_url')]"
+					},
+					"SSISIntegrationRunTime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+						"value": "[parameters('SSISIntegrationRunTime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint')]"
+					},
+					"SSISIntegrationRunTime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+						"value": "[parameters('SSISIntegrationRunTime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName')]"
+					},
+					"SSISIntegrationRunTime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+						"value": "[parameters('SSISIntegrationRunTime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword')]"
+					},
+					"IceAndFire_properties_typeProperties_url": {
+						"value": "[parameters('IceAndFire_properties_typeProperties_url')]"
+					},
+					"IceAndFire_properties_typeProperties_userName": {
+						"value": "[parameters('IceAndFire_properties_typeProperties_userName')]"
+					},
+					"IceAndFireDataLake_properties_typeProperties_url": {
+						"value": "[parameters('IceAndFireDataLake_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
