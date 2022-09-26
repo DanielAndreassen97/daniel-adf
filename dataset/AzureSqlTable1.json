@@ -5,6 +5,9 @@
 			"referenceName": "ASQL_danielandreassen_entertainment",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "IMBD"
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [],

@@ -5,6 +5,9 @@
 			"referenceName": "ADLS_danielandreassenstorage",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "IMBD"
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {

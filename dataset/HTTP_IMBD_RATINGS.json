@@ -5,6 +5,9 @@
 			"referenceName": "Http_IMBD",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "IMBD"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
