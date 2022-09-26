@@ -1,0 +1,19 @@
+{
+	"name": "IceandFireParq",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "IceAndFireDataLake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "iceandfire"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}

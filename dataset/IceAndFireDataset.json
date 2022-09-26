@@ -1,0 +1,15 @@
+{
+	"name": "IceAndFireDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "IceAndFire",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "houses"
+		},
+		"schema": []
+	}
+}
